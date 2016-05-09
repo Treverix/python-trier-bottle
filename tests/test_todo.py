@@ -127,7 +127,7 @@ class EditTodoTestCase(TestCase):
     def test_edit_todo(self, connect_mock, request_mock):
         # Given
         connect_mock.return_value = self.db
-        request_mock.GET = {'save': 'save', 'task': 'Task 1 edited', 'status': 'close'}
+        request_mock.GET = {'save': 'save', 'task': 'Task 1 edited', 'status': 'open'}
 
         # When
         response = todo.edit_item(1)
@@ -135,6 +135,25 @@ class EditTodoTestCase(TestCase):
         # Then
         c = self.db.cursor()
         c.execute("SELECT status from todo WHERE task='Task 1 edited'")
+        result = c.fetchone()
+
+        self.assertTrue(result)
+        self.assertEqual(result[0], 1)
+        self.assertTrue('item number 1' in response)
+
+    @patch('todo.request')
+    @patch('todo.sqlite3.connect')
+    def test_close_todo(self, connect_mock, request_mock):
+        # Given
+        connect_mock.return_value = self.db
+        request_mock.GET = {'save': 'save', 'task': 'Task 1 closed', 'status': 'close'}
+
+        # When
+        response = todo.edit_item(1)
+
+        # Then
+        c = self.db.cursor()
+        c.execute("SELECT status from todo WHERE task='Task 1 closed'")
         result = c.fetchone()
 
         self.assertTrue(result)
