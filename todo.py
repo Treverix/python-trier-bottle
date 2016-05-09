@@ -2,7 +2,6 @@ import functools
 import logging
 import sqlite3
 from bottle import route, run, debug, jinja2_view, request
-from bottle import PasteServer
 
 log = logging.getLogger(__name__)
 log.setLevel(logging.DEBUG)
@@ -63,4 +62,4 @@ def edit_item(no):
         return {'old': cur_data[0], 'no': no}
 
 debug(True)
-run(reloader=True, host='localhost', port=8080, server=PasteServer)
+run(reloader=True, host='localhost', port=8080)
