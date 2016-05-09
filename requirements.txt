@@ -1,1 +1,11 @@
+astroid==1.4.5
 bottle==0.12.9
+colorama==0.3.7
+Jinja2==2.8
+lazy-object-proxy==1.2.2
+MarkupSafe==0.23
+Paste==2.0.3
+pep8==1.7.0
+pylint==1.5.5
+six==1.10.0
+wrapt==1.10.8
