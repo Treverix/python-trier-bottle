@@ -93,4 +93,4 @@ ENV/
 python-meetup-demo.iml
 .idea/
 todo.db
-
+coverage_html_report/

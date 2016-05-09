@@ -3,6 +3,7 @@ astroid==1.4.5
 backports.shutil-get-terminal-size==1.0.0
 bottle==0.12.9
 colorama==0.3.7
+coverage==4.0.3
 decorator==4.0.9
 gnureadline==6.3.3
 ipython==4.2.0

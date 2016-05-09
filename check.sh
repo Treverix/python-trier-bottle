@@ -24,5 +24,13 @@ do
     pylint $module
 done
 
-echo "[INFO] Running tests"
-python -m unittest
+echo "[INFO] Running tests and measuring code coverage"
+coverage run -m unittest
+coverage report | grep -v 100%
+coverage html
+count=`grep pc_cov coverage_html_report/index.html | grep -c "100%" || true`
+if [ "x$count" != "x1" ]
+then
+    echo "[ERROR] Expecting 100% code coverage in the python code"
+    exit 1
+fi
