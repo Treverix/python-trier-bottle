@@ -58,5 +58,9 @@ def edit_item(no):
         return {'old': cur_data[0], 'no': no}
 
 
-debug(True)
-run(reloader=True, host='localhost', port=8080)
+def main():
+    debug(True)
+    run(reloader=True, host='localhost', port=8080)
+
+if __name__ == '__main__':
+    main()

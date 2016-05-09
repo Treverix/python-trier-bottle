@@ -23,3 +23,6 @@ do
     echo "[INFO] ... ... pylint $module"
     pylint $module
 done
+
+echo "[INFO] Running tests"
+python -m unittest
