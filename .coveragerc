@@ -4,6 +4,7 @@ branch = True
 
 omit =
     */.virtualenvs/*
+    */travis/*
     */tests/*
 
 [report]
